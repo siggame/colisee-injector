@@ -1,9 +1,12 @@
 FROM node:latest
+LABEL maintainer "siggame@mst.edu"
 
-ADD . injector
-WORKDIR injector
+ADD . matchmaker
+WORKDIR matchmaker
 
 RUN npm run setup
 RUN npm run build
 
-CMD ["npm", "run", "quick-start"]
+EXPOSE 22
+
+CMD ["npm", "start"]
