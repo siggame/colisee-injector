@@ -10,7 +10,7 @@
     "setup": "npm install",
     "build": "tsc",
     "quick-docs": "npm run quick-docs:ts && npm run quick-docs:api && npm run quick-docs:index",
-    "quick-docs:ts": "echo yo",
+    "quick-docs:ts": "typedoc --tsconfig tsdoc.json --out docs/docs/ts/",
     "quick-docs:api": "apidoc -i src/ -o docs/docs/api/",
     "quick-docs:index": "marked -i README.md -o docs/index.html",
     "predocs": "npm run build",
