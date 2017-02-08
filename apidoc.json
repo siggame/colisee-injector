@@ -1,3 +1,7 @@
 {
-  "name": "colisee-injector"
+  "name": "Colisee Injector",
+  "version": "0.1.0",
+  "description": "Micro-service that manually and safely schedules games on the SIG-Game Colisee.",
+  "title": "Colisee Injector",
+  "url" : "injector.siggame.io"
 }

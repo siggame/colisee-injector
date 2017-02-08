@@ -1,42 +1,72 @@
 [
   {
-    "type": "",
-    "url": "GET",
-    "title": "/ Home",
+    "type": "post",
+    "url": "/api/inject",
+    "title": "Inject",
+    "description": "<p>Inject teams who wish to battle each other into the database</p>",
+    "group": "API",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number[]",
+            "optional": false,
+            "field": "teams",
+            "description": "<p>The teams to schedule to fight each other.</p>"
+          }
+        ]
+      }
+    },
     "version": "0.0.0",
     "filename": "src/main.js",
-    "group": "_home_russley_projects_siggame_colisee_injector_src_main_js",
-    "groupTitle": "_home_russley_projects_siggame_colisee_injector_src_main_js",
+    "groupTitle": "API",
+    "name": "PostApiInject"
+  },
+  {
+    "type": "post",
+    "url": "/api/inject",
+    "title": "Inject",
+    "description": "<p>Inject teams who wish to battle each other into the database</p>",
+    "group": "API",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number[]",
+            "optional": false,
+            "field": "teams",
+            "description": "<p>The teams to schedule to fight each other.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/main.ts",
+    "groupTitle": "API",
+    "name": "PostApiInject"
+  },
+  {
+    "type": "get",
+    "url": "/",
+    "title": "index.html",
+    "description": "<p>Retrieve the index.html</p>",
+    "group": "Web",
+    "version": "0.0.0",
+    "filename": "src/main.js",
+    "groupTitle": "Web",
     "name": "Get"
   },
   {
-    "type": "",
-    "url": "POST",
-    "title": "/api/inject Inject",
-    "version": "0.0.0",
-    "filename": "src/main.js",
-    "group": "_home_russley_projects_siggame_colisee_injector_src_main_js",
-    "groupTitle": "_home_russley_projects_siggame_colisee_injector_src_main_js",
-    "name": "Post"
-  },
-  {
-    "type": "",
-    "url": "GET",
-    "title": "/ Home",
+    "type": "get",
+    "url": "/",
+    "title": "index.html",
+    "description": "<p>Retrieve the index.html</p>",
+    "group": "Web",
     "version": "0.0.0",
     "filename": "src/main.ts",
-    "group": "_home_russley_projects_siggame_colisee_injector_src_main_ts",
-    "groupTitle": "_home_russley_projects_siggame_colisee_injector_src_main_ts",
+    "groupTitle": "Web",
     "name": "Get"
-  },
-  {
-    "type": "",
-    "url": "POST",
-    "title": "/api/inject Inject",
-    "version": "0.0.0",
-    "filename": "src/main.ts",
-    "group": "_home_russley_projects_siggame_colisee_injector_src_main_ts",
-    "groupTitle": "_home_russley_projects_siggame_colisee_injector_src_main_ts",
-    "name": "Post"
   }
 ]

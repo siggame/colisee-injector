@@ -6,14 +6,20 @@ import { inject } from "./injector";
 let app = express()
 
 /**
- * @api GET / Home
+ * @api {get} / index.html
+ * @apiDescription Retrieve the index.html
+ * @apiGroup Web
  */
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
 /**
- * @api POST /api/inject Inject
+ * @api {post} /api/inject Inject
+ * @apiDescription Inject teams who wish to battle each other into the database
+ * @apiGroup API
+ * 
+ * @apiParam {Number[]} teams The teams to schedule to fight each other.
  */
 app.post('/api/inject', (req, res) =>{
 

@@ -1,7 +1,7 @@
 {
   "name": "colisee-injector",
   "version": "1.0.0",
-  "description": "Micro-service responsible for scheduling random games for SIG-Game Colisee.",
+  "description": "Micro-service that manually and safely schedules games on the SIG-Game Colisee.",
   "main": "src/main.js",
   "scripts": {
     "quick-start": "node src/main.js",
@@ -9,9 +9,10 @@
     "start": "npm run quick-start",
     "setup": "npm install",
     "build": "tsc",
-    "quick-docs": "npm run quick-docs:ts && npm run quick-docs:api",
+    "quick-docs": "npm run quick-docs:ts && npm run quick-docs:api && npm run quick-docs:index",
     "quick-docs:ts": "echo yo",
-    "quick-docs:api": "apidoc --input src/ --output docs/docs/api/",
+    "quick-docs:api": "apidoc -i src/ -o docs/docs/api/",
+    "quick-docs:index": "marked -i README.md -o docs/index.html",
     "predocs": "npm run build",
     "docs": "npm run quick-docs",
     "quick-test": "mocha test/",
@@ -44,6 +45,7 @@
     "@types/mocha": "^2.2.39",
     "@types/node": "^7.0.5",
     "apidoc": "^0.17.5",
+    "marked": "^0.3.6",
     "typedoc": "^0.5.5",
     "typescript": "^2.1.5"
   }
