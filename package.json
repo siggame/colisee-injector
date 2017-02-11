@@ -31,6 +31,7 @@
   "homepage": "https://github.com/siggame/colisee-injector#readme",
   "dependencies": {
     "chai": "^3.5.0",
+    "dotenv": "^4.0.0",
     "express": "^4.14.1",
     "knex": "^0.12.6",
     "lodash": "^4.17.4",
@@ -39,6 +40,7 @@
   },
   "devDependencies": {
     "@types/chai": "^3.4.34",
+    "@types/dotenv": "^2.0.20",
     "@types/express": "^4.0.35",
     "@types/knex": "0.0.41",
     "@types/lodash": "^4.14.52",

@@ -3,6 +3,7 @@
 .vagrant/
 .vscode/
 .idea/
+.env
 
 # NodeJS & NPM
 node_modules
