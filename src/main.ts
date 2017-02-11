@@ -1,6 +1,8 @@
 import * as path from "path";
 import * as express from "express";
 
+import * as db from "./db";
+
 let app = express()
 
 /**
