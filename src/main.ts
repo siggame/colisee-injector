@@ -15,11 +15,10 @@ app.get('/', (req, res) => {
 /**
  * @api POST /api/inject Inject
  */
+app.post('/api/inject', (req, res) =>{
 
 const compA: number = req.query.competetorA; // id
-  const compB: number = req.query.competetorB; // id
-
-  db.query("user").insert({name: "bob", age: 18}, "*")
+const compB: number = req.query.competetorB; // id
   
   // make a new game
   const newGame = {};
@@ -42,6 +41,7 @@ const compA: number = req.query.competetorA; // id
   	res.status(400).send();
   });
 });
+}
 
 app.post('/api/inject', (req, res) =>{
 
