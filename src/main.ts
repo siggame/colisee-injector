@@ -15,6 +15,34 @@ app.get('/', (req, res) => {
 /**
  * @api POST /api/inject Inject
  */
+
+const compA: number = req.query.competetorA; // id
+  const compB: number = req.query.competetorB; // id
+
+  db.query("user").insert({name: "bob", age: 18}, "*")
+  
+  // make a new game
+  const newGame = {};
+  db.query("game").insert(newGame, "*")
+   .then((games)=> {
+  		return games[0];
+  })
+  .then((game)=>{
+    	const stuff = [ 
+        db.query("team_game").insert({team_id: compA, game_id: game.id}, "*"),
+        db.query("team_game").insert({team_id: compB, game_id: game.id}, "*")
+      ];
+      return Promise.all(stuff);
+      //game.id
+  })
+  .then(()=>{
+    res.send();
+  })
+  .catch((err)=>{
+  	res.status(400).send();
+  });
+});
+
 app.post('/api/inject', (req, res) =>{
 
     let p1 = req.query.player1;
