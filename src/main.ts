@@ -1,6 +1,10 @@
+import * as dotenv from "dotenv";
+dotenv.config();
+
 import * as path from "path";
 import * as express from "express";
 
+import * as vars from "./vars";
 import * as db from "./db";
 
 let app = express()
@@ -23,31 +27,30 @@ app.get('/', (req, res) => {
  */
 app.post('/api/inject', (req, res) =>{
 
-const compA: number = req.query.competetorA; // id
-const compB: number = req.query.competetorB; // id
-  
-  // make a new game
-  const newGame = {};
-  db.query("game").insert(newGame, "*")
-   .then((games)=> {
-  		return games[0];
-  })
-  .then((game)=>{
-    	const stuff = [ 
-        db.query("team_game").insert({team_id: compA, game_id: game.id}, "*"),
-        db.query("team_game").insert({team_id: compB, game_id: game.id}, "*")
-      ];
-      return Promise.all(stuff);
-      //game.id
-  })
-  .then(()=>{
-    res.send();
-  })
-  .catch((err)=>{
-  	res.status(400).send();
-  });
+    const compA: number = req.query.competetorA; // id
+    const compB: number = req.query.competetorB; // id
+
+    // insert the game
+    db.query("game").insert({}, "*")
+        .then((games)=> {
+            return games[0];
+        })
+        .then((game)=>{
+            // insert the teams playing the game
+            const promises = [ 
+                db.query("team_game").insert({team_id: compA, game_id: game.id}),
+                db.query("team_game").insert({team_id: compB, game_id: game.id})
+            ];
+            return Promise.all(promises);
+        })
+        .then(()=>{
+            res.send();
+        })
+        .catch((err)=>{
+            res.status(400).send();
+        });
 });
 
-app.listen(3000, ()=>{
-    console.log("Listening on port 3000...");
+app.listen(vars.PORT, ()=>{
+    console.log(`Listening on port ${vars.PORT}...`);
 });
