@@ -6,7 +6,7 @@ import * as express from "express";
 
 import * as vars from "./vars";
 import * as db from "./db";
-
+import * as injector from "./injector";
 let app = express()
 
 /**
@@ -30,19 +30,7 @@ app.post('/api/inject', (req, res) =>{
     const compA: number = req.query.competetorA; // id
     const compB: number = req.query.competetorB; // id
 
-    // insert the game
-    db.query("game").insert({}, "*")
-        .then((games)=> {
-            return games[0];
-        })
-        .then((game)=>{
-            // insert the teams playing the game
-            const promises = [ 
-                db.query("team_game").insert({team_id: compA, game_id: game.id}),
-                db.query("team_game").insert({team_id: compB, game_id: game.id})
-            ];
-            return Promise.all(promises);
-        })
+    injector.inject(compA, compB)
         .then(()=>{
             res.send();
         })
