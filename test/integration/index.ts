@@ -1,6 +1,8 @@
 import * as db from "../../src/db";
+import injectorTests from "./injector";
 
-export default function(){
+export default function(): void{
+
     describe("Integration Tests", function(){
         it("should connect to the database", function(){
             this.retries(5);
@@ -10,5 +12,6 @@ export default function(){
                 .catch(reject)
             });
         });
+        injectorTests();
     });
 };
