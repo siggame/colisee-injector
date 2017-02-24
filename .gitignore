@@ -4,6 +4,7 @@
 .vscode/
 .idea/
 .env
+*.log
 
 # NodeJS & NPM
 node_modules
