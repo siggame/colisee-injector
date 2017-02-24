@@ -5,6 +5,8 @@ import * as db from "./db";
 export function inject(compA: number, compB: number): Promise<void> {
   return new Promise<void>((resolve, reject) => {
 
+    console.log(compA);
+    console.log(compB);
     // insert the game
     db.query("game").insert({}, "*")
       .then((games) => {

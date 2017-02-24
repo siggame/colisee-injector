@@ -3,11 +3,16 @@ dotenv.config();
 
 import * as path from "path";
 import * as express from "express";
+import * as bodyParser from "body-parser";
 
 import * as vars from "./vars";
 import * as db from "./db";
 import * as injector from "./injector";
 let app = express()
+
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 /**
  * @api {get} / index.html
@@ -26,9 +31,9 @@ app.get('/', (req, res) => {
  * @apiParam {Number[]} teams The teams to schedule to fight each other.
  */
 app.post('/api/inject', (req, res) => {
-
-  const compA: number = req.query.competetorA; // id
-  const compB: number = req.query.competetorB; // id
+  console.log(JSON.stringify(req.body));
+  const compA: number = parseInt(req.body.competetorA); // id
+  const compB: number = parseInt(req.body.competetorB); // id
 
   injector.inject(compA, compB)
     .then(() => {

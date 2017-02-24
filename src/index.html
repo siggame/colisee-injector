@@ -1,12 +1,69 @@
 <html>
 <head>
-    <title>blah</title>
+    <title>Injector</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
-<body>
-<textarea>user1<textarea/>
+<body onload="loadTeams()">
+    <div id="leftHandPane"></div>
+    <button onclick="onFight()">fight!!!!!!!!!!!!!!!!!!!!!!!!</button>
+    <div id="rightHandPane"></div>
 
 
-<textarea>user2<textarea/>
+    <!-- Javascript-->
+    <script>
+
+    var leftHandTeamID = 0;
+    var rightHandTeamID = 0;
+    function loadTeams(){
+        console.log("We good bros");
+        var fakeData = [
+            {name: "team1", id: 1},
+            {name: "team2", id: 2},
+            {name: "team3", id: 3},
+            {name: "team4", id: 4},
+            {name: "team5", id: 5}
+
+        ];
+        var leftOutput = "";
+        var rightOutput = "";
+        fakeData.forEach(function (data){
+            leftOutput+="<button onclick=\"onTeamClick("+data.id+",true)\">";
+            rightOutput+="<button onclick=\"onTeamClick("+data.id+",false)\">";
+            leftOutput+=data.name;
+            leftOutput+="</button>";
+            rightOutput+=data.name;
+            rightOutput+="</button>";
+            
+        })
+        document.getElementById("leftHandPane").innerHTML = leftOutput;
+        document.getElementById("rightHandPane").innerHTML = rightOutput;
+    }
+    
+    function onTeamClick(id, isLeft){
+        console.log("You clicked this ID");
+        console.log(id);
+        if (isLeft){
+            leftHandTeamID = id;
+        }
+        else{
+            rightHandTeamID = id;
+        }
+    }
+
+    function onFight(){
+        console.log("FIGHT!!");
+        console.log(leftHandTeamID);
+        console.log(rightHandTeamID);
+        var body = { 
+            competetorA: rightHandTeamID,
+            competetorB: leftHandTeamID
+        };
+        $.post( "/api/inject", body, function( data ) {
+                console.log("The deed is done");
+        });
+    }
+
+    </script>
 
 </body>
 </html>
