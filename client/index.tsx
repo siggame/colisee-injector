@@ -1,7 +1,8 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
+const element = <teamList name = 'Sara' />;
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  element,
   document.getElementById('root')
 );

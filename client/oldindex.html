@@ -1,90 +1,12 @@
 <html>
 <head>
-    <!-- Styles-->
-    <style>
-        body{
-            background-color: #272525;
-            }
-        #leftHandPane{
-            position: absolute;
-            display:block;
-            width: 250px;
-            left: 0px;
-            padding: 5px;
-            margin: 100px;
-            list-style-type: none;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            background-color: blue;
-            font-weight: bold;
-            max-height: 400px;
-            overflow-y:scroll;
-        }
-        #rightHandPane{
-            position: absolute;
-            display:block;
-            width:250px;
-            right: 0px;
-            padding:5px;
-            margin: 100px;
-            list-style-type: none;
-            font-weight: bold;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            background-color: blue;
-            max-height: 400px;
-            overflow-y:scroll;
-        }
-        li:hover{
-            background-color: lightskyblue;
-        }
-        li.activate{
-            background-color: darkcyan;
-        }
-        #fightButton:hover{
-            -webkit-transform: scale(1.2);
-            -ms-transform: scale(1.2);
-            transform: scale(1.2);
-            transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-            background-color: #ff0b0b;
-        }
-        li{
-            padding:10px;
-            background-color: #83B2D0;
-            text-align: center;
-            border-style: solid; 
-            border-width: 5px;
-            border-color: blue;
-
-        }
-        #fightButton{
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            font-size: 70px;
-            margin-top: 120px;
-            margin-left: 42%;
-            padding: 10px;
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background-color: #ff0000;
-            text-align: center;
-            transition: 0.5s ease;
-            text-align: center;
-            vertical-align: middle;
-            line-height: 190px;  
-        }
-        div{
-
-        }
-        
-    </style>
-
 
     <title>Injector</title>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body onload="loadTeams()">
     <ul id="leftHandPane"></ul>
-        <div id="fightButton" onclick="onFight()">fight!</div>
+    <div id="fightButton" onclick="onFight()">fight!</div>
     <ul id="rightHandPane"></ul>
 
 
