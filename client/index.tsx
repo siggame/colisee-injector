@@ -1,8 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-const element = <teamList name = 'Sara' />;
+import { TeamList } from "./TeamList";
+
 ReactDOM.render(
-  element,
+  <TeamList name='Sara' />,
   document.getElementById('root')
 );
