@@ -17,4 +17,21 @@ router.post('/inject', (req, res) => {
     });
 });
 
+interface ShortTeam{
+  name: string; 
+  id: number;
+};
+
+router.get("/teams", (req, res) => {
+  const body: ShortTeam[] = [
+    {name: "team1", id: 3},
+    {name: "team2", id: 4},
+    {name: "team3", id: 6},
+    {name: "team4", id: 5},
+    {name: "team6", id: 7},
+    {name: "team7", id: 8}
+    ];
+    res.send(body)
+});
+
 export default router;
