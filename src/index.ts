@@ -18,9 +18,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(middleware.logger);
 
-app.use("/api", routers.api);
-app.use("/", routers.web);
+app.use("/api", routers.api.ApiRouter);
+app.use("/", routers.web.WebRouter);
 
-app.listen(vars.PORT, ()=>{
-    console.log(`Listening on port ${vars.PORT}...`);
+app.use(middleware.errorHandler);
+
+app.listen(vars.PORT, () => {
+    console.log(`Listening on  ${vars.HOST}:${vars.PORT}...`);
 });

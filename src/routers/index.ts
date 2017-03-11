@@ -1,5 +1,5 @@
-import api from "./api";
-import web from "./web";
+import * as api from "./api";
+import * as web from "./web";
 
 export {
     api,
