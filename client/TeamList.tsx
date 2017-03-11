@@ -7,34 +7,27 @@ export interface TeamListState{
 };
 
 export interface TeamListProps{
-    onChange: (state: number)=> void;
+    onChange: (state: number) => void;
 };
 
 export class TeamList extends React.Component<TeamListProps, TeamListState>{
     constructor(props){
         super(props);
-        console.log(JSON.stringify(props));
         this.state = {teams: [], selected_team: null};
-        
-        $.getJSON("/api/teams", (data)=>{
-            this.setState({
-                teams: data
-            });
-        })
-            this.selectTeam = this.selectTeam.bind(this);
+        $.getJSON( "/api/teams", data => this.setState({teams: data}) );
+
+        this.selectTeam = this.selectTeam.bind(this);
 
     }
     selectTeam(teamId: number){
-        console.log(`Before SetState: ${teamId}`);
         this.setState({
             selected_team: teamId
         })
-        console.log(`After SetState: ${JSON.stringify(this.state)}`);
         this.props.onChange(teamId);
     }
     render(){
         const teamElements = this.state.teams.map((team)=>{
-            return <button onClick={()=>this.selectTeam(team.id)}>{team.name}</button>
+            return <div><button onClick={()=>this.selectTeam(team.id)}>{team.name}</button><br/></div>
         })
         return <div>{teamElements}</div>
     }

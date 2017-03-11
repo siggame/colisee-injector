@@ -1,11 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-
 import { TeamList } from "./TeamList";
-import {Header} from "./Header";
-import {Footer} from "./Footer";
-import {App} from "./App";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
+import { App } from "./App";
 
 class MainApp extends React.Component<any, any>{
     render(){
@@ -18,6 +17,6 @@ class MainApp extends React.Component<any, any>{
 }
 
 ReactDOM.render(
-  <MainApp/>,
-  document.getElementById('root')
+    <MainApp/>,
+    document.getElementById('root')
 );

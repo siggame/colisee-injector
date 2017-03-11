@@ -21,10 +21,9 @@ export class App extends React.Component<void, AppState>{
         });
     }
     inject(){
-        const body = {
-            competitorA: this.state.selected_teams[0],
-            competitorB: this.state.selected_teams[1]
-        };
+        const body = JSON.stringify({
+            competitors: [ this.state.selected_teams[0], this.state.selected_teams[1] ]
+        });
         $.post("/api/inject", body);
     }
     render(){
@@ -32,7 +31,6 @@ export class App extends React.Component<void, AppState>{
             <div className="pure-u-1-3"><TeamList onChange={(s)=>{this.changeTeamList(s,0)}}/></div>
             <div className="pure-u-1-3"><button onClick={()=>{this.inject()}}>Fight!</button></div>
             <div className="pure-u-1-3"><TeamList onChange={(s)=>{this.changeTeamList(s,1)}}/></div>
-
         </div>
     }
 }
